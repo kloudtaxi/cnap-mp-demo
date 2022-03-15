@@ -4,7 +4,7 @@ metadata:
   name: cnap-demo-backend-v2
   namespace: cnap-mp-demo
 spec:
-  replicas: 0
+  replicas: 2
   selector:
     matchLabels:
       app: cnap-demo-backend
