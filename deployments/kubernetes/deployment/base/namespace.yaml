@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cnap-mp-demo
+  namespace: cnap-mp-demo
+  annotations:
+    kuma.io/sidecar-injection: enabled

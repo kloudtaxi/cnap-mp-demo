@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: cnap-mp-demo
+  annotations:
+    3001.service.kuma.io/protocol: "http"
+spec:
+  selector:
+    app: cnap-demo-backend
+  ports:
+  - name: api
+    port: 3001

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cnap-demo-backend-v1
+  namespace: cnap-mp-demo
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: cnap-demo-backend
+      version: v1
+      env: intg
+  template:
+    metadata:
+      labels:
+        app: cnap-demo-backend
+        version: v1
+        env: intg
+    spec:
+      containers:
+      - name: kuma-be
+        image: kvn0218/kuma-demo-be:latest
+        resources:
+          requests:
+           cpu: 15m
+           memory: 105M
+          limits:
+           cpu: 15m
+           memory: 105M
+        
+        env:
+        - name: POSTGRES_HOST
+          value: postgres
+        - name: REDIS_HOST
+          value: redis
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3001
